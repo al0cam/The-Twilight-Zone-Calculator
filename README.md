@@ -1,6 +1,7 @@
 # The Twilight Zone Calculator
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a calculator app which is developed for the twilight zone 9+10 video (https://www.youtube.com/watch?v=dQ9RlR9Jp3s) 
+The point of the application is learning more about Vue, Typescript, Cypress and testing through fun and games.
 
 ## Recommended IDE Setup
 
