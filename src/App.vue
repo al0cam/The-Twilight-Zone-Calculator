@@ -1,47 +1,40 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Display from './components/Display.vue'
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <div class="content">
+      <h1>
+        The Twilight Zone Calculator
+      </h1>
+
+      <Display></Display>
+      <!-- TODO: DISPLAY COMPONENT -->
+      <!-- TODO: CALCULATOR BUTTONS AND FUNCTIONS COMPONENT WITH NESTED COMPONENTS -->
+
+    </div>
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+main{
+  background-color: grey;
+  height: 100vh;
+  width: 100%;
 }
+.content{
+  background-color: rgb(157, 157, 157);
+  max-width: 960px;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: start;
 }
 </style>
