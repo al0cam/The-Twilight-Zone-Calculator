@@ -3,6 +3,15 @@
 This is a calculator app which is developed for the twilight zone 9+10 video (https://www.youtube.com/watch?v=dQ9RlR9Jp3s) 
 The point of the application is learning more about Vue, Typescript, Cypress and testing through fun and games.
 
+Maybe I'll add https://greensock.com/ to the project to make it more fun.
+
+
+TODO: Add greensock to the project for animations
+TODO: Add render function https://vuejs.org/guide/extras/render-function.html
+TODO: Add cypress tests
+TODO: Add unit tests
+
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
