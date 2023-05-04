@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Display from './components/Display.vue'
+import KeyPad from './components/KeyPad.vue';
 
 </script>
 
@@ -10,10 +11,11 @@ import Display from './components/Display.vue'
         The Twilight Zone Calculator
       </h1>
 
-      <Display></Display>
       <!-- TODO: DISPLAY COMPONENT -->
+      <Display></Display>
       <!-- TODO: CALCULATOR BUTTONS AND FUNCTIONS COMPONENT WITH NESTED COMPONENTS -->
-
+      <KeyPad></KeyPad>
+      
     </div>
   </main>
 </template>
