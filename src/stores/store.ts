@@ -13,28 +13,46 @@ export const useStore = defineStore('store', () => {
         '^2': (a: number, b: number):number => a * a,
     };
 
- 
-    // TODO: write a way to add numbers to the display and convert them into stored values
-    // TODO: write a function which will try to calculate the result of the stored values based on the operator
-    // TODO: if the operator is empty the last entered number should be returned uppon pressing equals
-    // TODO: if the operator is not empty the last entered number should be used as the second operand if its not null
+    const twilightZoneOperations: op | opWithSingleArgs = {
+        '+': (a: number, b: number):number => 21,
+        '-': (a: number, b: number):number => 21,
+        '*': (a: number, b: number):number => 21,
+        '/': (a: number, b: number):number => 21,
+        '√': (a: number, b: number):number => 21,
+        '^2': (a: number, b: number):number => 21,
+    };
+
     const display = ref("");
     const ans = ref(0);
     const operator = ref("");
+    const clearScreen = ref(false);
+    const twilightZone = ref(false);
 
     function appendNumberToDisplay(number: string) {
-        display.value += number;
+        if(clearScreen.value)
+        {
+            clearDisplay();
+            display.value += number;
+        }
+        else
+            display.value += number;
     }
-    function clearDisplay()
+    function clearFunction()
     {
         display.value = '';
         ans.value = 0;
         operator.value = '';
     }
+    function clearDisplay()
+    {
+        clearScreen.value = false;
+        display.value = '';
+    }
     function calculate()
     {
         let num1 = ans.value
         let num2 = parseFloat(display.value);
+        clearScreen.value = true;
         if(num2 == 0)
         {
             display.value = num1.toString();
@@ -52,15 +70,20 @@ export const useStore = defineStore('store', () => {
         }
         else
         {
-            ans.value = operations[operator.value](num1, num2);
-            display.value = operations[operator.value](num1, num2).toString();
+            let result = twilightZone.value ? twilightZoneOperations[operator.value](num1, num2) : operations[operator.value](num1, num2)
+            ans.value = result;
+            display.value = result.toString();
             operator.value = '';
         }
     }
 
     function addOperation(op: string) {
         if(operator.value == '')
+        {
+            ans.value = parseFloat(display.value);
             operator.value = op;
+            clearScreen.value = true;
+        }
         else if (operator.value != '')
         {
             calculate();
@@ -74,5 +97,5 @@ export const useStore = defineStore('store', () => {
     }
     
 
-    return {display, ans, operator, appendNumberToDisplay, clearDisplay, addOperation, ansToDisplay}
+    return {display, ans, operator, appendNumberToDisplay, clearDisplay, addOperation, ansToDisplay, calculate, twilightZone}
 })
